@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paint</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">   
+</head>
+<body>
+    <h1>Paint</h1>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <br>
+    <div>
+        <!-- Entrada de texto de cor -->
+        <span>Cor: </span>
+        <input type="text" id="cor">
+        <!-- Entrada de texto de largura do traço -->
+        <span>Largura do Traço: </span>
+        <input type="number" id="traco">
+        <!-- Botão -->
+        <button onclick="limpar()">Limpar</button>
+    </div>
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

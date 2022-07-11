@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+    background-image: url("bg1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+h1 {
+    color: deeppink;
+    font-size: 40px;
+}
+
+#myCanvas {
+    border-width: 6px;
+    border-radius: 4px;
+    border-color: yellow;
+    border-style: ridge;
+    background-color: #fff;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+div {
+    margin: 10px auto;
+    background-color: rgba(255, 255, 0, 0.5);
+    width: 800px;
+}
+
+span {
+    font-size: 20px;
+}
+
+input {
+    margin-right: 20px;
+}
+
+button {
+    background-color: coral;
+    border: none;
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 16px;
+}
