@@ -12,7 +12,7 @@ var txtCor = document.getElementById("cor");
 var txtTraco = document.getElementById("traco");
 
 var cor = "red";
-var largTraco = 5;
+var largTraco = 3;
 
 function getEventType (e) {
     evento = e.type;
@@ -94,11 +94,7 @@ function touchMove (e) {
 function desenha () {
     ctx.beginPath();
 
-    // cor = document.getElementById("cor").value;
     ctx.strokeStyle = cor;
-
-    // largTraco = document.getElementById("traco").value;
-    console.log(largTraco);
     ctx.lineWidth = largTraco;
 
     console.log(ctx);
