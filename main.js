@@ -12,7 +12,7 @@ var ctx = canvas.getContext("2d");
 // var txtTraco = document.getElementById("traco");
 
 var cor = "red";
-var largTraco = 2;
+var largTraco = 5;
 
 function getEventType (e) {
     evento = e.type;
@@ -95,9 +95,13 @@ function desenha () {
     ctx.beginPath();
 
     cor = document.getElementById("cor").value;
+    if (cor != "") {ctx.strokeStyle = cor;}
+
     largTraco = document.getElementById("traco").value;
-    ctx.strokeStyle = cor;
-    ctx.lineWidth = largTraco;
+    console.log(largTraco);
+    if (largTraco != "") {ctx.lineWidth = largTraco;}
+
+    console.log(ctx);
 
     ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
 
