@@ -8,8 +8,8 @@ var ultimaPosicaoX, ultimaPosicaoY;
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-// var txtCor = document.getElementById("cor");
-// var txtTraco = document.getElementById("traco");
+var txtCor = document.getElementById("cor");
+var txtTraco = document.getElementById("traco");
 
 var cor = "red";
 var largTraco = 5;
@@ -94,12 +94,12 @@ function touchMove (e) {
 function desenha () {
     ctx.beginPath();
 
-    cor = document.getElementById("cor").value;
-    if (cor != "") {ctx.strokeStyle = cor;}
+    // cor = document.getElementById("cor").value;
+    ctx.strokeStyle = cor;
 
-    largTraco = document.getElementById("traco").value;
+    // largTraco = document.getElementById("traco").value;
     console.log(largTraco);
-    if (largTraco != "") {ctx.lineWidth = largTraco;}
+    ctx.lineWidth = largTraco;
 
     console.log(ctx);
 
@@ -116,10 +116,10 @@ function limpar () {
     document.getElementById("traco").value = "";
 }
 
-// txtCor.addEventListener("input", function (e) {
-//     cor = e.target.value;
-// });
+txtCor.addEventListener("input", function (e) {
+    cor = e.target.value;
+});
 
-// txtTraco.addEventListener("input", function (e) {
-//     largTraco = e.target.value;
-// });
+txtTraco.addEventListener("input", function (e) {
+    largTraco = e.target.value;
+});
