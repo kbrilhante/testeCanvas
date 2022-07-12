@@ -112,7 +112,7 @@ function limpar () {
     document.getElementById("traco").value = "";
 }
 
-txtCor.addEventListener("input", function (e) {
+txtCor.addEventListener("submit", function (e) {
     cor = e.target.value;
 });
 
