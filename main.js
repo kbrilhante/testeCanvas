@@ -97,13 +97,13 @@ function desenha () {
     ctx.strokeStyle = cor;
     ctx.lineWidth = largTraco;
 
-    console.log(ctx);
-
     ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
 
     ctx.lineTo(posicaoX, posicaoY);
 
     ctx.stroke();
+
+    randomNumber(20, 100);
 }
 
 function limpar () {
@@ -119,3 +119,12 @@ txtCor.addEventListener("submit", function (e) {
 txtTraco.addEventListener("input", function (e) {
     largTraco = e.target.value;
 });
+
+function randomNumber (min, max){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    var num = Math.ceil(Math.random() * ((max-min) + 1));
+    if ((num <= min) || (num >= max)) {
+        console.log(num);
+    }
+}
