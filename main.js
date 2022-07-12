@@ -11,8 +11,18 @@ var ctx = canvas.getContext("2d");
 var txtCor = document.getElementById("cor");
 var txtTraco = document.getElementById("traco");
 
-var cor = "random";
-var largTraco = 3;
+var cor = "";
+var traco = 3;
+
+const larguraTela = screen.width;
+const novaLargura = larguraTela - 70;
+const novaAltura = screen.height - 300;
+
+if (larguraTela < 992) {
+    canvas.width = novaLargura;
+    canvas.height = novaAltura;
+    document.body.style.overflow = "hidden";
+}
 
 function getEventType (e) {
     evento = e.type;
@@ -94,14 +104,14 @@ function touchMove (e) {
 function desenha () {
     ctx.beginPath();
 
-    if (cor == "random") {
+    if (cor == "") {
         ctx.strokeStyle = "rgb(" + randomNumber(0, 255) + "," + randomNumber(0, 255) + "," + randomNumber(0, 255) + ")";
         console.log(ctx.strokeStyle);
     } else {
         ctx.strokeStyle = cor;
     }
     
-    ctx.lineWidth = largTraco;
+    ctx.lineWidth = traco;
 
     ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
 
@@ -116,16 +126,34 @@ function limpar () {
     document.getElementById("traco").value = "";
 }
 
-txtCor.addEventListener("submit", function (e) {
-    cor = e.target.value;
+txtCor.addEventListener("input", function (e) {
+    console.log(validaCor(txtCor.value));
+    if (validaCor(txtCor.value)) {
+        cor = txtCor.value;
+    }
 });
 
 txtTraco.addEventListener("input", function (e) {
-    largTraco = e.target.value;
+    if (txtTraco.value > 0) {
+        traco = txtTraco.value;
+    }
 });
 
 function randomNumber (min, max){
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * ((max-min) + 1)) + min;
+}
+
+function validaCor (cor) {
+    var controle = 'red';
+    var d = document.createElement('div');
+    d.style.color = controle;
+    d.style.color = cor;
+
+    // if (cor !== controle && (d.style.color === controle || d.style.color === '')) {
+    if (cor !== controle && d.style.color === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
+        return false;
+    }
+    return true;
 }
