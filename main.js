@@ -11,7 +11,7 @@ var ctx = canvas.getContext("2d");
 var txtCor = document.getElementById("cor");
 var txtTraco = document.getElementById("traco");
 
-var cor = "red";
+var cor = "random";
 var largTraco = 3;
 
 function getEventType (e) {
@@ -94,7 +94,13 @@ function touchMove (e) {
 function desenha () {
     ctx.beginPath();
 
-    ctx.strokeStyle = cor;
+    if (cor == "random") {
+        ctx.strokeStyle = "rgb(" + randomNumber(0, 255) + "," + randomNumber(0, 255) + "," + randomNumber(0, 255) + ")";
+        console.log(ctx.strokeStyle);
+    } else {
+        ctx.strokeStyle = cor;
+    }
+    
     ctx.lineWidth = largTraco;
 
     ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
@@ -102,8 +108,6 @@ function desenha () {
     ctx.lineTo(posicaoX, posicaoY);
 
     ctx.stroke();
-
-    randomNumber(20, 100);
 }
 
 function limpar () {
@@ -123,8 +127,5 @@ txtTraco.addEventListener("input", function (e) {
 function randomNumber (min, max){
     min = Math.ceil(min);
     max = Math.floor(max);
-    var num = Math.ceil(Math.random() * ((max-min) + 1));
-    if ((num <= min) || (num >= max)) {
-        console.log(num);
-    }
+    return Math.floor(Math.random() * ((max-min) + 1)) + min;
 }
