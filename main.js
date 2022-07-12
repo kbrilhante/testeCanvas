@@ -70,11 +70,9 @@ canvas.addEventListener("touchstart", touchStart);
 function touchStart (e) {
     getEventType(e);
     // console.log(e);
-    var offsetX = e.touches[0].clientX - (e.target.clientLeft + e.target.offsetLeft);
-    var offsetY = e.touches[0].clientY - (e.target.clientTop + e.target.offsetTop);
-    // console.log("Offset: X = " + offsetX + " | Y = " + offsetY);
-    posicaoX = offsetX;
-    posicaoY = offsetY;
+    posicaoX = e.touches[0].clientX - (canvas.clientLeft + canvas.offsetLeft);
+    posicaoY = e.touches[0].clientY - (e.target.clientTop + e.target.offsetTop); //e.target é o mesmo que canvas. deixei um de cada pra referencia
+    // console.log("Offset: X = " + posicaoX + " | Y = " + posicaoY);
     ultimaPosicaoX = posicaoX;
     ultimaPosicaoY = posicaoY;
 }
