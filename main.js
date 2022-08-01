@@ -1,6 +1,6 @@
 // Canvas refecence:
 // https://www.w3schools.com/graphics/canvas_reference.asp
- var evento = "";
+var evento = "";
 
 var posicaoX, posicaoY;
 var ultimaPosicaoX, ultimaPosicaoY;
@@ -12,6 +12,8 @@ var txtCor = document.getElementById("cor");
 var txtTraco = document.getElementById("traco");
 
 var cor = "";
+var rainbow = false;
+var hue = 0;
 var traco = 3;
 
 const larguraTela = screen.width;
@@ -101,10 +103,15 @@ function touchMove (e) {
 
 function desenha () {
     ctx.beginPath();
-
-    if (cor == "") {
+    if (cor === "") {
         ctx.strokeStyle = "rgb(" + randomNumber(0, 255) + "," + randomNumber(0, 255) + "," + randomNumber(0, 255) + ")";
-        console.log(ctx.strokeStyle);
+        // console.log(ctx.strokeStyle);
+    } else if (cor === 'rainbow') {
+        let codCor = 'hsl(' + hue++ + ', 100%, 50%)';
+        console.log(codCor);
+        ctx.strokeStyle = codCor;
+        console.log(hue);
+        // console.log(ctx.strokeStyle);
     } else {
         ctx.strokeStyle = cor;
     }
@@ -125,9 +132,12 @@ function limpar () {
 }
 
 txtCor.addEventListener("input", function (e) {
-    console.log(validaCor(txtCor.value));
-    if (validaCor(txtCor.value)) {
-        cor = txtCor.value;
+    const novaCor = txtCor.value.toLowerCase();
+    // console.log(novaCor);
+    // console.log(validaCor(novaCor));
+    if (validaCor(novaCor)) {
+        cor = novaCor;
+        console.log(cor);
     }
 });
 
@@ -143,14 +153,17 @@ function randomNumber (min, max){
     return Math.floor(Math.random() * ((max-min) + 1)) + min;
 }
 
-function validaCor (cor) {
+function validaCor (testeCor) {
     var controle = 'red';
     var d = document.createElement('div');
     d.style.color = controle;
-    d.style.color = cor;
+    d.style.color = testeCor;
 
-    // if (cor !== controle && (d.style.color === controle || d.style.color === '')) {
-    if (cor !== controle && d.style.color === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
+    // if (testeCor !== controle && (d.style.testeCor === controle || d.style.testeCor === '')) {
+    // if (testeCor !== controle && d.style.testeCor === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
+    if (testeCor === 'rainbow') {
+        return true;
+    } else if (testeCor !== controle && d.style.color === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
         return false;
     }
     return true;
