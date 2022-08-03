@@ -84,6 +84,8 @@ function touchMove (e) {
 
 function desenha () {
     ctx.beginPath();
+
+    // 
     if (cor === 'random') {
         ctx.strokeStyle = "rgb(" + randomNumber(0, 255) + "," + randomNumber(0, 255) + "," + randomNumber(0, 255) + ")";
         // console.log(ctx.strokeStyle);
@@ -101,7 +103,6 @@ function desenha () {
     ctx.lineWidth = traco;
 
     ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
-
     ctx.lineTo(posicaoX, posicaoY);
 
     ctx.stroke();
