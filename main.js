@@ -26,32 +26,13 @@ if (larguraTela < 992) {
     document.body.style.overflow = "hidden";
 }
 
+canvas.addEventListener("mousedown", getEventType);
+canvas.addEventListener("mouseup", getEventType);
+canvas.addEventListener("mouseleave", getEventType);
+
 function getEventType (e) {
     evento = e.type;
     console.log(evento);
-}
-
-canvas.addEventListener("mousedown", mouseDown);
-
-function mouseDown (e) {
-    getEventType(e);
-    // console.log(e);
-    // console.log("Offset: X = " + e.offsetX + " | Y = " + e.offsetY);
-    // console.log("Client: X = " + e.clientX + " | Y = " + e.clientY);
-    // console.log("Client - Offset: X = " + (e.clientX - e.offsetX) + " | Y = " + (e.clientY - e.offsetY));
-}
-
-canvas.addEventListener("mouseup", mouseUp);
-
-function mouseUp (e) {
-    getEventType(e);
-    // console.log(e);
-}
-
-canvas.addEventListener("mouseleave", mouseLeave);
-
-function mouseLeave (e) {
-    getEventType(e);
 }
 
 canvas.addEventListener("mousemove", mouseMove);
@@ -103,11 +84,12 @@ function touchMove (e) {
 
 function desenha () {
     ctx.beginPath();
-    if (cor === "") {
+    if (cor === 'random') {
         ctx.strokeStyle = "rgb(" + randomNumber(0, 255) + "," + randomNumber(0, 255) + "," + randomNumber(0, 255) + ")";
         // console.log(ctx.strokeStyle);
-    } else if (cor === 'rainbow') {
+    } else if (cor === 'rainbow' || cor === '') {
         let codCor = 'hsl(' + hue++ + ', 100%, 50%)';
+        if (hue > 360) hue = 0;
         console.log(codCor);
         ctx.strokeStyle = codCor;
         console.log(hue);
@@ -133,8 +115,6 @@ function limpar () {
 
 txtCor.addEventListener("input", function (e) {
     const novaCor = txtCor.value.toLowerCase();
-    // console.log(novaCor);
-    // console.log(validaCor(novaCor));
     if (validaCor(novaCor)) {
         cor = novaCor;
         console.log(cor);
@@ -161,7 +141,7 @@ function validaCor (testeCor) {
 
     // if (testeCor !== controle && (d.style.testeCor === controle || d.style.testeCor === '')) {
     // if (testeCor !== controle && d.style.testeCor === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
-    if (testeCor === 'rainbow') {
+    if (testeCor === 'rainbow'|| testeCor === 'random') {
         return true;
     } else if (testeCor !== controle && d.style.color === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
         return false;
