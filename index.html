@@ -13,15 +13,23 @@
     <h1>Paint</h1>
     <canvas id="myCanvas" width="800" height="600"></canvas>
     <br>
-    <div>
-        <!-- Entrada de texto de cor -->
-        <span>Color: </span>
-        <input type="text" id="cor">
-        <!-- Entrada de texto de largura do traço -->
-        <span>Width: </span>
-        <input type="number" id="traco">
-        <!-- Botão -->
-        <button onclick="limpar()">Limpar</button>
+    <div id="options">
+        <div class="option" id="colorSelect">
+            <!-- Entrada de texto de cor -->
+            <!-- <input type="text" id="rainbow"> -->
+            <input type="radio" name="option" id="rainbow"><label>Rainbow</label><br>
+            <input type="radio" name="option" id="random"><label>Random</label><br>
+            <input type="radio" name="option" id="color"><label>Color </label><input type="color" id="cor">
+        </div>
+        <div class="option">
+            <!-- Entrada de texto de largura do traço -->
+            <span>Width: </span>
+            <input type="number" id="traco">
+        </div> 
+        <div class="option">
+            <!-- Botão -->
+            <button onclick="limpar()">Limpar</button>
+        </div>
         <!-- instruções -->
         <br>
         <h3>Type <span id="rainbowTxt" style="color: rgb(0, 195, 255)">RAINBOW</span> to get rainbow ink</h3>

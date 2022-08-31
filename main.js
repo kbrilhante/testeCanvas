@@ -115,11 +115,11 @@ function limpar () {
 }
 
 txtCor.addEventListener("input", function (e) {
-    const novaCor = txtCor.value.toLowerCase();
-    if (validaCor(novaCor)) {
-        cor = novaCor;
+    // const novaCor = txtCor.value.toLowerCase();
+    // if (validaCor(novaCor)) {
+        cor = txtCor.value;
         console.log(cor);
-    }
+    // }
 });
 
 txtTraco.addEventListener("input", function (e) {
@@ -134,18 +134,22 @@ function randomNumber (min, max){
     return Math.floor(Math.random() * ((max-min) + 1)) + min;
 }
 
-function validaCor (testeCor) {
-    var controle = 'red';
-    var d = document.createElement('div');
-    d.style.color = controle;
-    d.style.color = testeCor;
 
-    // if (testeCor !== controle && (d.style.testeCor === controle || d.style.testeCor === '')) {
-    // if (testeCor !== controle && d.style.testeCor === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
-    if (testeCor === 'rainbow'|| testeCor === 'random') {
-        return true;
-    } else if (testeCor !== controle && d.style.color === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
-        return false;
-    }
-    return true;
-}
+
+
+
+// function validaCor (testeCor) {
+//     var controle = 'red';
+//     var d = document.createElement('div');
+//     d.style.color = controle;
+//     d.style.color = testeCor;
+
+//     // if (testeCor !== controle && (d.style.testeCor === controle || d.style.testeCor === '')) {
+//     // if (testeCor !== controle && d.style.testeCor === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
+//     if (testeCor === 'rainbow'|| testeCor === 'random') {
+//         return true;
+//     } else if (testeCor !== controle && d.style.color === controle) { //eu quero que meu codigo retorne true no texto vazio para cores aleatórias
+//         return false;
+//     }
+//     return true;
+// }
