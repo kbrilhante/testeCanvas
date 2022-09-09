@@ -10,20 +10,27 @@
     <link rel="stylesheet" type="text/css" href="style.css">   
 </head>
 <body>
-    <h1>Paint</h1>
+    <h1 class="textArea">Paint</h1>
     <canvas id="myCanvas" width="800" height="600"></canvas>
     <br>
-    <div id="options">
+    <div class="textArea" id="options">
         <div class="option" id="colorSelect">
             <!-- Entrada de texto de cor -->
             <!-- <input type="text" id="rainbow"> -->
-            <input type="radio" name="option" id="rainbow"><label>Rainbow</label><br>
-            <input type="radio" name="option" id="random"><label>Random</label><br>
-            <input type="radio" name="option" id="color"><label>Color </label><input type="color" id="cor">
+            <!-- <input type="radio" name="option" id="rainbow"><label>Rainbow</label><br>
+            <input type="radio" name="option" id="random"><label>Random</label><br> -->
+            <!-- <input type="radio" name="option" id="color"> -->
+            <label>Color </label>
+            <select name="" id="colorOption">
+                <option value="color">Color</option>
+                <option value="rainbow">Rainbow</option>
+                <option value="random">Random</option>
+            </select>
+            <input type="color" id="cor">
         </div>
         <div class="option">
             <!-- Entrada de texto de largura do traço -->
-            <span>Width: </span>
+            <label>Width: </label>
             <input type="number" id="traco">
         </div> 
         <div class="option">
@@ -31,9 +38,9 @@
             <button onclick="limpar()">Limpar</button>
         </div>
         <!-- instruções -->
-        <br>
+        <!-- <br>
         <h3>Type <span id="rainbowTxt" style="color: rgb(0, 195, 255)">RAINBOW</span> to get rainbow ink</h3>
-        <h3>Type <span id="randomTxt" style="color: rgb(195, 0, 255)">RANDOM</span> to get random colors ink</h3>
+        <h3>Type <span id="randomTxt" style="color: rgb(195, 0, 255)">RANDOM</span> to get random colors ink</h3> -->
     </div>
     <!-- JavaScript -->
     <script src="main.js"></script>
