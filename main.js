@@ -18,19 +18,15 @@ var evento = "";
 var posicaoX, posicaoY;
 var ultimaPosicaoX, ultimaPosicaoY;
 console.log(window)
-// const larguraTela = screen.width;
 const larguraTela = innerWidth;
 const alturaOptions = document.getElementById("options").clientHeight + document.getElementById("header").clientHeight;
 const novaLargura = larguraTela * 0.9;
-// const novaAltura = screen.height - (alturaOptions + 120);
 const novaAltura = innerHeight - (alturaOptions + 60);
 
-// if (larguraTela < 992) {
-    canvas.width = novaLargura;
-    console.log(canvas.width)
-    canvas.height = novaAltura;
-    document.body.style.overflow = "hidden";
-// }
+canvas.width = novaLargura;
+console.log(canvas.width)
+canvas.height = novaAltura;
+document.body.style.overflow = "hidden";
 
 canvas.addEventListener("mousedown", getEventType);
 canvas.addEventListener("mouseup", getEventType);
