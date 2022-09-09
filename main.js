@@ -1,27 +1,31 @@
 // Canvas refecence:
 // https://www.w3schools.com/graphics/canvas_reference.asp
-var evento = "";
 
-var posicaoX, posicaoY;
-var ultimaPosicaoX, ultimaPosicaoY;
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-
-var txtCor = document.getElementById("cor");
-var txtTraco = document.getElementById("traco");
+const opcaoCor = document.getElementById("colorOption");
+const txtCor = document.getElementById("cor");
+const txtTraco = document.getElementById("traco");
 
 var cor = "";
 var rainbow = false;
 var hue = 0;
 var traco = 3;
 
+var evento = "";
+
+var posicaoX, posicaoY;
+var ultimaPosicaoX, ultimaPosicaoY;
+
 const larguraTela = screen.width;
-const novaLargura = larguraTela - 70;
-const novaAltura = screen.height - 300;
+const alturaOptions = document.getElementById("options").clientHeight;
+const novaLargura = larguraTela * 0.9;
+const novaAltura = screen.height - (alturaOptions + 120);
 
 if (larguraTela < 992) {
     canvas.width = novaLargura;
+    console.log(canvas.width)
     canvas.height = novaAltura;
     document.body.style.overflow = "hidden";
 }
