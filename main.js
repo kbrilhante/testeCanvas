@@ -88,9 +88,8 @@ function desenha () {
     if (cor === 'random') {
         ctx.strokeStyle = "rgb(" + rdmNum() + "," + rdmNum() + "," + rdmNum() + ")";
         // console.log(ctx.strokeStyle);
-    // } else if (cor === 'rainbow' || cor === '') {
     } else if (cor === 'rainbow') {
-        let codCor = 'hsl(' + hue++ + ', 100%, 50%)';
+        const codCor = 'hsl(' + hue++ + ', 100%, 50%)';
         if (hue > 360) hue = 0;
         // console.log(codCor);
         ctx.strokeStyle = codCor;
