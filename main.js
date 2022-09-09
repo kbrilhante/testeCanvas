@@ -89,9 +89,10 @@ function desenha () {
 
     // 
     if (cor === 'random') {
-        ctx.strokeStyle = "rgb(" + randomNumber(0, 255) + "," + randomNumber(0, 255) + "," + randomNumber(0, 255) + ")";
+        ctx.strokeStyle = "rgb(" + randomNumber() + "," + randomNumber() + "," + randomNumber() + ")";
         // console.log(ctx.strokeStyle);
-    } else if (cor === 'rainbow' || cor === '') {
+    // } else if (cor === 'rainbow' || cor === '') {
+    } else if (cor === 'rainbow') {
         let codCor = 'hsl(' + hue++ + ', 100%, 50%)';
         if (hue > 360) hue = 0;
         console.log(codCor);
@@ -130,11 +131,14 @@ txtTraco.addEventListener("input", function (e) {
     }
 });
 
-function randomNumber (min, max){
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * ((max-min) + 1)) + min;
+function randomNumber (){
+    return Math.floor(Math.random() * 255);
 }
+// function randomNumber (min, max){
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * ((max-min) + 1)) + min;
+// }
 
 
 
