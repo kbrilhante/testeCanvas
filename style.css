@@ -1,7 +1,9 @@
 body {
     text-align: center;
     background-image: url("bg.png");
-    background-position: center;
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
     background-size: cover;
 }
 
@@ -19,10 +21,10 @@ h1 {
     cursor: pointer;
 }
 
-#options {
+.textArea {
     margin: 10px auto;
     background-color: rgba(255, 255, 0, 0.8);
-    width: 700px;
+    width: 800px;
     max-width: 100%;
     padding: 10px;
 }
@@ -30,9 +32,10 @@ h1 {
 .option {
     display: inline-block;
     text-align: left;
+    padding: 10px;
 }
 
-span {
+label {
     font-size: 20px;
 }
 
@@ -40,8 +43,12 @@ input {
     margin-right: 20px;
 }
 
-#traco {
-    width: 50px;
+#traco, #colorOptions {
+    width: 70px;
+}
+
+#cor {
+    display: none;
 }
 
 button {
