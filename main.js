@@ -16,10 +16,10 @@ var evento = "";
 
 var posicaoX, posicaoY;
 var ultimaPosicaoX, ultimaPosicaoY;
-const larguraTela = window.innerWidth;
+const larguraTela = innerWidth;
 const alturaOptions = document.getElementById("options").clientHeight + document.getElementById("header").clientHeight;
 const novaLargura = larguraTela * 0.9;
-const novaAltura = window.innerHeight - (alturaOptions + 60);
+const novaAltura = innerHeight - (alturaOptions + 60);
 
 canvas.width = novaLargura;
 canvas.height = novaAltura;
@@ -31,7 +31,6 @@ canvas.addEventListener("mouseleave", getEventType);
 
 function getEventType (e) {
     evento = e.type;
-    console.log(e)
     // console.log(evento);
 }
 
